@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <md4c.h>
 #include <md4c-html.h>
 
 #define MAX_MD_LENGTH 1000000
@@ -37,7 +38,7 @@ int main() {
         buf_len += n;
     }
 
-    if (md_html(input_buf, buf_len, print_html, NULL, 0, 0)) {
+    if (md_html(input_buf, buf_len, print_html, NULL, MD_DIALECT_GITHUB, 0)) {
         fprintf(stderr, "error: parser error\n");
         return 1;
     }
